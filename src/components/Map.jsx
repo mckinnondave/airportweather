@@ -24,6 +24,7 @@ const Map = () => {
             </Marker>
           );
         }
+        return null;
       })}
     </MapContainer>
   );
