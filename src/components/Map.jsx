@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "./Map.css";
+import "./Map.scss";
 import { airports } from "../objects/airport_list";
 
 const Map = () => {
+  const [airportList, setAirportList] = useState({})
+  console.log(airportList)
+
   return (
+    <>
     <MapContainer center={[49.283, -123.121]} zoom={10} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -19,7 +23,8 @@ const Map = () => {
             >
               <Popup>
                 <strong>{marker.name}</strong> <br /> {marker.city},{" "}
-                {marker.country}
+                {marker.country} <br />
+                <button onClick={(prev) => setAirportList(marker.name)}>ADD</button>
               </Popup>
             </Marker>
           );
@@ -27,6 +32,8 @@ const Map = () => {
         return null;
       })}
     </MapContainer>
+    <div></div>
+    </>
   );
 };
 
