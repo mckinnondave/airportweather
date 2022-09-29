@@ -4,8 +4,26 @@ import "./Map.scss";
 import { airports } from "../objects/airport_list";
 
 const Map = () => {
-  const [airportList, setAirportList] = useState({})
+  const [airportList, setAirportList] = useState([])
+  const [iataCode, setIataCode] = useState([])
   console.log(airportList)
+  console.log(iataCode)
+
+  const handleAddingAirport = (name, code) => {
+    if (!airportList.includes(name)) {
+      setAirportList([...airportList, name])
+      setIataCode([...iataCode, code])
+    }
+  }
+
+  const handleRemovingAirport = (name, code) => {
+    if (airportList.includes(name)) {
+      const copiedAirports = airportList.filter(selected => selected !== name)
+      const copiedIatas = iataCode.filter(selected => selected !== code)
+      setAirportList(copiedAirports)
+      setIataCode(copiedIatas)
+    }
+  }
 
   return (
     <>
@@ -24,7 +42,8 @@ const Map = () => {
               <Popup>
                 <strong>{marker.name}</strong> <br /> {marker.city},{" "}
                 {marker.country} <br />
-                <button onClick={(prev) => setAirportList(marker.name)}>ADD</button>
+                <button onClick={() => handleAddingAirport(marker.name, marker.iata_code)}>Add</button>
+                <button onClick={() => handleRemovingAirport(marker.name, marker.iata_code)}>Remove</button>
               </Popup>
             </Marker>
           );
