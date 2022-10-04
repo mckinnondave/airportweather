@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.scss";
 import { airports } from "../objects/airport_list";
+import axios from "axios";
 
 const Map = () => {
   const [airportList, setAirportList] = useState([]);
   const [iataCode, setIataCode] = useState([]);
-  console.log(airportList);
-  console.log(iataCode);
+  const [metarData, setMetarData] = useState(null)
+  console.log("AIRPORT LIST", airportList);
+  console.log("IATA CODES", iataCode);
 
   const handleAddingAirport = (name, code) => {
     if (!airportList.includes(name)) {
@@ -26,6 +28,18 @@ const Map = () => {
       setIataCode(copiedIatas);
     }
   };
+
+const callForMetarData = () => {
+  const options = {
+    headers: { "X-API-Key": `${process.env.REACT_APP_WEATHER_API}` },
+  };
+
+  axios.get("https://api.checkwx.com/metar/CYVR/decoded", options).then((resp) => {
+    setMetarData(resp.data.data)
+  });
+};
+
+console.log("METAR DATA", metarData);
 
   return (
     <>
@@ -69,6 +83,7 @@ const Map = () => {
           return null;
         })}
       </MapContainer>
+      <button onClick={() => callForMetarData()}>METAR</button>
     </>
   );
 };
