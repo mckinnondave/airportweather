@@ -2,21 +2,18 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.scss";
 import { airports } from "../objects/airport_list";
-import axios from "axios";
 import Weather from "./Weather";
 
 const Map = () => {
   const [airportList, setAirportList] = useState([]);
-  const [iataCode, setIataCode] = useState([]);
-  const [metarData, setMetarData] = useState(null);
-  const [inputText, setInputText] = useState("");
-  console.log("AIRPORT LIST", airportList);
-  console.log("IATA CODES", iataCode);
+  const [icaoCode, setIcaoCode] = useState([]);
+  // console.log("AIRPORT LIST", airportList);
+  console.log("IATA CODES", icaoCode);
 
   const handleAddingAirport = (name, code) => {
     if (!airportList.includes(name)) {
       setAirportList([...airportList, name]);
-      setIataCode([...iataCode, code]);
+      setIcaoCode([...icaoCode, "C" + code]);
     }
   };
 
@@ -25,25 +22,11 @@ const Map = () => {
       const copiedAirports = airportList.filter(
         (selected) => selected !== name
       );
-      const copiedIatas = iataCode.filter((selected) => selected !== code);
+      const copiedIatas = icaoCode.filter((selected) => selected !== code);
       setAirportList(copiedAirports);
-      setIataCode(copiedIatas);
+      setIcaoCode(copiedIatas);
     }
   };
-
-  const callForMetarData = () => {
-    const options = {
-      headers: { "X-API-Key": `${process.env.REACT_APP_WEATHER_API}` },
-    };
-
-    axios
-      .get("https://api.checkwx.com/metar/CYVR/decoded", options)
-      .then((res) => {
-        setMetarData(res.data.data);
-      });
-  };
-
-  console.log("METAR DATA", metarData);
 
   return (
     <div className="map__container">
@@ -87,17 +70,8 @@ const Map = () => {
           return null;
         })}
       </MapContainer>
-      <Weather />
-      {/* <form action="">
-        <input
-          className="map__input"
-          type="text"
-          onChange={(e) => setInputText(e.target.value)}
-          value={airportList}
-        ></input>
-      </form>
-
-      <button onClick={() => callForMetarData()}>METAR</button> */}
+      <Weather airportList={airportList} icaoCode={icaoCode}/>
+      
     </div>
   );
 };
