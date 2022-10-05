@@ -22,6 +22,9 @@ const Weather = ({ airportList, icaoCode }) => {
 
   return (
     <div className="weather__container">
+      <div className="airport__container">
+        <div className="airport__name"></div>
+      </div>
       <form action="">
         <input
           className="map__input"
@@ -31,7 +34,7 @@ const Weather = ({ airportList, icaoCode }) => {
         ></input>
       </form>
 
-      <button onClick={() => callForMetarData()}>METAR</button>
+      <button onClick={() => callForMetarData()}>Get Weather</button>
     </div>
   );
 };

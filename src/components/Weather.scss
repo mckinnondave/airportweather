@@ -1,5 +1,18 @@
-.weather__container {
-  border: solid black;
-  height: 80vh;
-  width: 30vw;
+.weather{
+  &__container {
+    border: solid black;
+    height: 80vh;
+    width: 30vw;
+  }
 }
+
+.airport {
+  &__container {
+    border: solid black 1px;
+    width: 98%;
+    min-height: 300px;
+
+  }
+}
+
+  
