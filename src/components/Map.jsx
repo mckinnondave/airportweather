@@ -7,7 +7,8 @@ import axios from "axios";
 const Map = () => {
   const [airportList, setAirportList] = useState([]);
   const [iataCode, setIataCode] = useState([]);
-  const [metarData, setMetarData] = useState(null)
+  const [metarData, setMetarData] = useState(null);
+  const [inputText, setInputText] = useState("");
   console.log("AIRPORT LIST", airportList);
   console.log("IATA CODES", iataCode);
 
@@ -29,25 +30,19 @@ const Map = () => {
     }
   };
 
-const callForMetarData = () => {
-  const options = {
-    headers: { "X-API-Key": `${process.env.REACT_APP_WEATHER_API}` },
+  const callForMetarData = () => {
+    const options = {
+      headers: { "X-API-Key": `${process.env.REACT_APP_WEATHER_API}` },
+    };
+
+    axios
+      .get("https://api.checkwx.com/metar/CYVR/decoded", options)
+      .then((res) => {
+        setMetarData(res.data.data);
+      });
   };
 
-  axios.get("https://api.checkwx.com/metar/CYVR/decoded", options).then((res) => {
-    setMetarData(res.data.data)
-  });
-};
-
-const doTheThing = () => {
-  for (const key of metarData) {
-    console.log(key.clouds);
-  }
-}
-
-doTheThing();
-
-console.log("METAR DATA", metarData);
+  console.log("METAR DATA", metarData);
 
   return (
     <>
@@ -91,6 +86,15 @@ console.log("METAR DATA", metarData);
           return null;
         })}
       </MapContainer>
+      <form action="">
+        <input
+          className="map__input"
+          type="text"
+          onChange={(e) => setInputText(e.target.value)}
+          value={airportList}
+        ></input>
+      </form>
+
       <button onClick={() => callForMetarData()}>METAR</button>
     </>
   );
