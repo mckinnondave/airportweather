@@ -1,7 +1,7 @@
 .leaflet-container {
-  width: 70vw;
+  width: 60vw;
   height: 80vh;
-  border: black solid;
+  border: black solid 2px;
 }
 
 .map{
@@ -10,6 +10,6 @@
     display: flex;
     flex-direction: row;
     height: 100vh;
-    border: black solid;
+    border: black solid 1px;
   }
 }

@@ -22,7 +22,7 @@ const Map = () => {
       const copiedAirports = airportList.filter(
         (selected) => selected !== name
       );
-      const copiedIcaos = icaoCode.filter((selected) => selected !== code);
+      const copiedIcaos = icaoCode.filter((selected) => selected !== ("C" + code));
       setAirportList(copiedAirports);
       setIcaoCode(copiedIcaos);
     }
@@ -32,7 +32,7 @@ const Map = () => {
     <div className="map__container">
       <MapContainer
         center={[49.283, -123.121]}
-        zoom={10}
+        zoom={8}
         scrollWheelZoom={true}
       >
         <TileLayer
