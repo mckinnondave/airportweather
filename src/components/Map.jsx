@@ -34,10 +34,18 @@ const callForMetarData = () => {
     headers: { "X-API-Key": `${process.env.REACT_APP_WEATHER_API}` },
   };
 
-  axios.get("https://api.checkwx.com/metar/CYVR/decoded", options).then((resp) => {
-    setMetarData(resp.data.data)
+  axios.get("https://api.checkwx.com/metar/CYVR/decoded", options).then((res) => {
+    setMetarData(res.data.data)
   });
 };
+
+const doTheThing = () => {
+  for (const key of metarData) {
+    console.log(key.clouds);
+  }
+}
+
+doTheThing();
 
 console.log("METAR DATA", metarData);
 
