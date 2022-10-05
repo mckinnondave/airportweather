@@ -7,9 +7,8 @@ import Weather from "./Weather";
 const Map = () => {
   const [airportList, setAirportList] = useState([]);
   const [icaoCode, setIcaoCode] = useState([]);
-  // console.log("AIRPORT LIST", airportList);
-  console.log("IATA CODES", icaoCode);
 
+  // adds airport name and ICAO code to respective states
   const handleAddingAirport = (name, code) => {
     if (!airportList.includes(name)) {
       setAirportList([...airportList, name]);
@@ -17,14 +16,15 @@ const Map = () => {
     }
   };
 
+  // removes airport name and ICAO code from respective states
   const handleRemovingAirport = (name, code) => {
     if (airportList.includes(name)) {
       const copiedAirports = airportList.filter(
         (selected) => selected !== name
       );
-      const copiedIatas = icaoCode.filter((selected) => selected !== code);
+      const copiedIcaos = icaoCode.filter((selected) => selected !== code);
       setAirportList(copiedAirports);
-      setIcaoCode(copiedIatas);
+      setIcaoCode(copiedIcaos);
     }
   };
 
@@ -40,6 +40,7 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {airports.map((marker) => {
+          // ceates marker and popup for each coordinate/city provided from aiport object
           if (marker.country === "Canada") {
             return (
               <Marker
@@ -70,8 +71,7 @@ const Map = () => {
           return null;
         })}
       </MapContainer>
-      <Weather airportList={airportList} icaoCode={icaoCode}/>
-      
+      <Weather airportList={airportList} icaoCode={icaoCode} />
     </div>
   );
 };
