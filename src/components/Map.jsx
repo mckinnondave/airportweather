@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.scss";
 import { airports } from "../objects/airport_list";
 import axios from "axios";
+import Weather from "./Weather";
 
 const Map = () => {
   const [airportList, setAirportList] = useState([]);
@@ -45,7 +46,7 @@ const Map = () => {
   console.log("METAR DATA", metarData);
 
   return (
-    <>
+    <div className="map__container">
       <MapContainer
         center={[49.283, -123.121]}
         zoom={10}
@@ -86,7 +87,8 @@ const Map = () => {
           return null;
         })}
       </MapContainer>
-      <form action="">
+      <Weather />
+      {/* <form action="">
         <input
           className="map__input"
           type="text"
@@ -95,8 +97,8 @@ const Map = () => {
         ></input>
       </form>
 
-      <button onClick={() => callForMetarData()}>METAR</button>
-    </>
+      <button onClick={() => callForMetarData()}>METAR</button> */}
+    </div>
   );
 };
 

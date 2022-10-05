@@ -1,9 +1,15 @@
 .leaflet-container {
-  width: 80vw;
+  width: 70vw;
   height: 80vh;
   border: black solid;
 }
 
-.map__input {
-  width: 50%;
+.map{
+  
+  &__container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    border: black solid;
+  }
 }
