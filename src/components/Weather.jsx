@@ -41,22 +41,22 @@ const Weather = ({ airportList, icaoCode }) => {
 
   return (
     <>
-    {!obtainedData ? (
-      <div className="weather__container">
-      <form action="">
-        <input
-          className="weather__input"
-          type="text"
-          onChange={(e) => setInputText(e.target.value)}
-          value={airportList}
-        ></input>
-      </form>
-      <button onClick={() => callForWeatherData()}>Get Weather</button>
-      </div>
-    ) : (
-      <WeatherCard metarData={metarData} tafData={tafData}/>
-    )}
-    </>  
+      {!obtainedData ? (
+        <div className="weather__container">
+          <form action="">
+            <input
+              className="weather__input"
+              type="text"
+              onChange={(e) => setInputText(e.target.value)}
+              value={airportList}
+            ></input>
+          </form>
+          <button onClick={() => callForWeatherData()}>Get Weather</button>
+        </div>
+      ) : (
+        obtainedData && <WeatherCard metarData={metarData} tafData={tafData} />
+      )}
+    </>
   );
 };
 
