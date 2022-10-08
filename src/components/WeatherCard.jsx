@@ -1,4 +1,5 @@
 import "./WeatherCard.scss";
+import convertUTC from "../helpers/weatherHelpers";
 
 const WeatherCard = ({metarData, tafData}) => {
   return (
@@ -15,10 +16,12 @@ const WeatherCard = ({metarData, tafData}) => {
       <div className="metarAndTaf">
         <div className="metar">
           <div className="metarAndTaf__banner">Recent Weather</div>
+          Weather reported on {convertUTC(metarData[0].observed)}
         </div>
         <div className="taf">
           <div className="metarAndTaf__banner">Forecast</div>
         </div>
+        
       </div>
     </div>
   );
