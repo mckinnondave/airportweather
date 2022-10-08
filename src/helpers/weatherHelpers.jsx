@@ -1,3 +1,4 @@
+// Converts incoming UTC data into locale time and makes it readable. Used in WeatherCard.
 const convertUTC = (utcTime) => {
   const options = {
     weekday: 'long',
