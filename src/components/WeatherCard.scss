@@ -1,0 +1,51 @@
+.airport {
+  &__container {
+    border: solid black 2px;
+    width: 50%;
+    height: 350px;
+  }
+  &__banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    border-bottom: solid black 1px;
+  }
+  &__name {
+
+    width: 66%;
+  }
+  &__elevation {
+    display: flex;
+    justify-content: right;
+    width: 30%;
+  }
+}
+
+.metarAndTaf {
+  display: flex;
+  flex-direction: row;
+  height: 310px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+
+  &__banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    border-bottom: solid black 1px;
+  }
+}
+
+.metar {
+  border-right: solid black 1px;
+  width: 50%;
+  height: 100%;
+}
+
+.taf {
+  width: 50%;
+  height: 100%;
+}

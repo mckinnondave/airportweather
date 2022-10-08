@@ -1,11 +1,13 @@
 import "./Weather.scss";
 import axios from "axios";
 import { useState } from "react";
+import WeatherCard from "./WeatherCard";
 
 const Weather = ({ airportList, icaoCode }) => {
   const [metarData, setMetarData] = useState(null);
   const [tafData, setTafData] = useState(null);
   const [inputText, setInputText] = useState("");
+  const [obtainedData, setObtainedData] = useState(false);
   console.log("METAR DATA", metarData);
   console.log("Taf DATA", tafData);
   const codeString = icaoCode.toString();
@@ -29,6 +31,7 @@ const Weather = ({ airportList, icaoCode }) => {
         axios.spread((...responses) => {
           setMetarData(responses[0].data.data);
           setTafData(responses[1].data.data);
+          setObtainedData(true)
         })
       )
       .catch((err) => {
@@ -37,7 +40,9 @@ const Weather = ({ airportList, icaoCode }) => {
   };
 
   return (
-    <div className="weather__container">
+    <>
+    {!obtainedData ? (
+      <div className="weather__container">
       <form action="">
         <input
           className="weather__input"
@@ -47,11 +52,11 @@ const Weather = ({ airportList, icaoCode }) => {
         ></input>
       </form>
       <button onClick={() => callForWeatherData()}>Get Weather</button>
-
-      <div className="airport__container">
-        <div className="airport__name"></div>
       </div>
-    </div>
+    ) : (
+      <WeatherCard metarData={metarData} tafData={tafData}/>
+    )}
+    </>  
   );
 };
 

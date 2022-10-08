@@ -1,19 +1,11 @@
 .weather{
   &__container {
     border: solid black 2px;
-    height: 80vh;
+    height: 100vh;
     width: 40vw;
   }
   &__input {
     width: 98%;
-  }
-}
-
-.airport {
-  &__container {
-    border: solid black 2px;
-    width: 98%;
-    min-height: 300px;
   }
 }
 
