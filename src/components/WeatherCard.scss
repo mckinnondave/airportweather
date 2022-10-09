@@ -1,7 +1,13 @@
+.weatherCard {
+  display: flex;
+  flex-direction: column;
+  
+}
+
 .airport {
   &__container {
     border: solid black 2px;
-    width: 50%;
+    width: 100%;
     height: 350px;
   }
   &__banner {

@@ -54,7 +54,7 @@ const Weather = ({ airportList, icaoCode }) => {
           <button onClick={() => callForWeatherData()}>Get Weather</button>
         </div>
       ) : (
-        obtainedData && <WeatherCard metarData={metarData} tafData={tafData} />
+        obtainedData && <WeatherCard metarData={metarData} tafData={tafData}/>
       )}
     </>
   );
