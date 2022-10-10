@@ -18,10 +18,16 @@ const WeatherCard = ({ metarData, tafData }) => {
           <div className="metarAndTaf">
             <div className="metar">
               <div className="metarAndTaf__banner">Recent Weather</div>
-              Weather reported on {convertUTC(airport.observed)}
+              <div className="metar__reportTime">
+                Weather reported on {convertUTC(airport.observed)}
+              </div>
+              <div className="metar__dataContainer">
+                <div className="metar__left">HI</div>
+                <div className="metar__right">HI</div>
+              </div>
             </div>
             <div className="taf">
-              <div className="metarAndTaf__banner">{tafData[index].icao}</div>
+              <div className="metarAndTaf__banner">Forecast</div>
             </div>
           </div>
         </div>
