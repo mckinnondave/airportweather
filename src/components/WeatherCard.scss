@@ -105,6 +105,15 @@
 
     &__wind {
       width: 50%;
+
+      &__data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        font-size: 15px;
+        text-align: center;
+      }
     }
 
     &__bottom {
@@ -116,10 +125,26 @@
     &__vis {
       width: 50%;
       border-right: solid black 1px;
+
+      &__data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        font-size: 20px;
+      }
     }
 
     &__humidity {
       width: 50%;
+
+      &__data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        font-size: 20px;
+      }
     }
   }
 

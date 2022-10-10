@@ -24,22 +24,32 @@ const WeatherCard = ({ metarData, tafData }) => {
               <div className="metar__dataContainer">
                 <div className="metar__left">
                   <div className="metar__left__top">
-                    <div className="metar__left__temp"><div className="metar__left__banner">
-                      Temperature
+                    <div className="metar__left__temp">
+                      <div className="metar__left__banner">Temperature</div>
+                      <div className="metar__left__temp__data">
+                        {airport.temperature.celsius}&#8451;
+                      </div>
                     </div>
-                    <div className="metar__left__temp__data">{airport.temperature.celsius}&#8451;</div>
+                    <div className="metar__left__wind">
+                      <div className="metar__left__banner">Wind</div>
+                      <div className="metar__left__wind__data">
+                        Coming from: <br/><br/>"NW" ({airport.wind.degrees}&#176;) at {airport.wind.speed_kph}kph
+                      </div>
                     </div>
-                    <div className="metar__left__wind"><div className="metar__left__banner">
-                      Wind
-                    </div></div>
                   </div>
                   <div className="metar__left__bottom">
-                  <div className="metar__left__vis"><div className="metar__left__banner">
-                      Visibility
-                    </div></div>
-                    <div className="metar__left__humidity"><div className="metar__left__banner">
-                      Humidity
-                    </div></div>
+                    <div className="metar__left__vis">
+                      <div className="metar__left__banner">Visibility</div>
+                      <div className="metar__left__vis__data">
+                        {airport.visibility.miles} miles
+                      </div>
+                    </div>
+                    <div className="metar__left__humidity">
+                      <div className="metar__left__banner">Humidity</div>
+                      <div className="metar__left__humidity__data">
+                        {airport.humidity.percent}%
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="metar__right">HI</div>
