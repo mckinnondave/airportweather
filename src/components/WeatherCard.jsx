@@ -1,5 +1,5 @@
 import "./WeatherCard.scss";
-import {convertUTC, windDirection} from "../helpers/weatherHelpers";
+import { convertUTC, windDirection } from "../helpers/weatherHelpers";
 
 const WeatherCard = ({ metarData, tafData }) => {
   return (

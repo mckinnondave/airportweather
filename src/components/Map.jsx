@@ -22,7 +22,9 @@ const Map = () => {
       const copiedAirports = airportList.filter(
         (selected) => selected !== name
       );
-      const copiedIcaos = icaoCode.filter((selected) => selected !== ("C" + code));
+      const copiedIcaos = icaoCode.filter(
+        (selected) => selected !== "C" + code
+      );
       setAirportList(copiedAirports);
       setIcaoCode(copiedIcaos);
     }
@@ -30,11 +32,7 @@ const Map = () => {
 
   return (
     <div className="map__container">
-      <MapContainer
-        center={[49.283, -123.121]}
-        zoom={8}
-        scrollWheelZoom={true}
-      >
+      <MapContainer center={[49.283, -123.121]} zoom={8} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

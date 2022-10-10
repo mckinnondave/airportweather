@@ -31,7 +31,7 @@ const Weather = ({ airportList, icaoCode }) => {
         axios.spread((...responses) => {
           setMetarData(responses[0].data.data);
           setTafData(responses[1].data.data);
-          setObtainedData(true)
+          setObtainedData(true);
         })
       )
       .catch((err) => {
@@ -54,7 +54,7 @@ const Weather = ({ airportList, icaoCode }) => {
           <button onClick={() => callForWeatherData()}>Get Weather</button>
         </div>
       ) : (
-        obtainedData && <WeatherCard metarData={metarData} tafData={tafData}/>
+        obtainedData && <WeatherCard metarData={metarData} tafData={tafData} />
       )}
     </>
   );
