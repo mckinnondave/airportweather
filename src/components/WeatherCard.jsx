@@ -27,6 +27,7 @@ const WeatherCard = ({ metarData, tafData }) => {
                     <div className="metar__left__temp"><div className="metar__left__banner">
                       Temperature
                     </div>
+                    <div className="metar__left__temp__data">{airport.temperature.celsius}&#8451;</div>
                     </div>
                     <div className="metar__left__wind"><div className="metar__left__banner">
                       Wind
