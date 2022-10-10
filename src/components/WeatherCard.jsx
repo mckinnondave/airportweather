@@ -4,7 +4,7 @@ import convertUTC from "../helpers/weatherHelpers";
 const WeatherCard = ({ metarData, tafData }) => {
   return (
     <div className="weatherCard">
-      {metarData.map((airport) => (
+      {metarData.map((airport, index) => (
         <div className="airport__container" key={airport.station.name}>
           <div className="airport__banner">
             <div className="airport__name">
@@ -21,7 +21,7 @@ const WeatherCard = ({ metarData, tafData }) => {
               Weather reported on {convertUTC(airport.observed)}
             </div>
             <div className="taf">
-              <div className="metarAndTaf__banner">Forecast</div>
+              <div className="metarAndTaf__banner">{tafData[index].icao}</div>
             </div>
           </div>
         </div>
