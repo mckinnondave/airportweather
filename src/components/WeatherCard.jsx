@@ -1,5 +1,5 @@
 import "./WeatherCard.scss";
-import convertUTC from "../helpers/weatherHelpers";
+import {convertUTC, windDirection} from "../helpers/weatherHelpers";
 
 const WeatherCard = ({ metarData, tafData }) => {
   return (
@@ -33,7 +33,7 @@ const WeatherCard = ({ metarData, tafData }) => {
                     <div className="metar__left__wind">
                       <div className="metar__left__banner">Wind</div>
                       <div className="metar__left__wind__data">
-                        Coming from: <br/><br/>"NW" ({airport.wind.degrees}&#176;) at {airport.wind.speed_kph}kph
+                        Coming from: <br/><br/>{windDirection(airport.wind.degrees)} ({airport.wind.degrees}&#176;) at {airport.wind.speed_kph}kph
                       </div>
                     </div>
                   </div>
