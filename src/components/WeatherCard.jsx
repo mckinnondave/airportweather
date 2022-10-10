@@ -24,12 +24,21 @@ const WeatherCard = ({ metarData, tafData }) => {
               <div className="metar__dataContainer">
                 <div className="metar__left">
                   <div className="metar__left__top">
-                    <div className="metar__left__temp">Temperature</div>
-                    <div className="metar__left__wind">Wind</div>
+                    <div className="metar__left__temp"><div className="metar__left__banner">
+                      Temperature
+                    </div>
+                    </div>
+                    <div className="metar__left__wind"><div className="metar__left__banner">
+                      Wind
+                    </div></div>
                   </div>
                   <div className="metar__left__bottom">
-                  <div className="metar__left__vis">Visibility</div>
-                    <div className="metar__left__humidity">Humidity</div>
+                  <div className="metar__left__vis"><div className="metar__left__banner">
+                      Visibility
+                    </div></div>
+                    <div className="metar__left__humidity"><div className="metar__left__banner">
+                      Humidity
+                    </div></div>
                   </div>
                 </div>
                 <div className="metar__right">HI</div>
