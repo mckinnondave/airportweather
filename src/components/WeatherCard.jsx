@@ -22,7 +22,16 @@ const WeatherCard = ({ metarData, tafData }) => {
                 Weather reported on {convertUTC(airport.observed)}
               </div>
               <div className="metar__dataContainer">
-                <div className="metar__left">HI</div>
+                <div className="metar__left">
+                  <div className="metar__left__top">
+                    <div className="metar__left__temp">Temperature</div>
+                    <div className="metar__left__wind">Wind</div>
+                  </div>
+                  <div className="metar__left__bottom">
+                  <div className="metar__left__vis">Visibility</div>
+                    <div className="metar__left__humidity">Humidity</div>
+                  </div>
+                </div>
                 <div className="metar__right">HI</div>
               </div>
             </div>

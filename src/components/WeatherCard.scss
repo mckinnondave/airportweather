@@ -69,12 +69,43 @@
   &__left {
     border-right: solid black 1px;
     height: 100%;
-    width: 40%;
+    width: 50%;
+
+    &__top {
+      border-bottom: solid black 1px;
+      height: 50%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__temp {
+      width: 50%;
+      border:solid black 1px;
+    }
+    &__wind {
+      width: 50%;
+      border:solid black 1px;
+    }
+
+    &__vis {
+      width: 50%;
+      border:solid black 1px;
+    }
+    &__humidity {
+      width: 50%;
+      border:solid black 1px;
+    }
+
+    &__bottom {
+      height: 50%;
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   &__right {
     height: 100%;
-    width: 60%;
+    width: 50%;
   }
 }
 
