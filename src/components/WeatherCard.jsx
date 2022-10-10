@@ -52,7 +52,9 @@ const WeatherCard = ({ metarData, tafData }) => {
                     </div>
                   </div>
                 </div>
-                <div className="metar__right">HI</div>
+                <div className="metar__right">
+                  <div className="metar__right__banner"></div>
+                </div>
               </div>
             </div>
             <div className="taf">
