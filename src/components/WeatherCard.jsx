@@ -33,7 +33,11 @@ const WeatherCard = ({ metarData, tafData }) => {
                     <div className="metar__left__wind">
                       <div className="metar__left__banner">Wind</div>
                       <div className="metar__left__wind__data">
-                        Coming from: <br/><br/>{windDirection(airport.wind.degrees)} ({airport.wind.degrees}&#176;) at {airport.wind.speed_kph}kph
+                        Coming from: <br />
+                        <br />
+                        {windDirection(airport.wind.degrees)} (
+                        {airport.wind.degrees}&#176;) at{" "}
+                        {airport.wind.speed_kph}kph
                       </div>
                     </div>
                   </div>
@@ -53,7 +57,30 @@ const WeatherCard = ({ metarData, tafData }) => {
                   </div>
                 </div>
                 <div className="metar__right">
-                  <div className="metar__right__banner"></div>
+                  <div className="metar__right__banner">Clouds</div>
+
+                  <div className="metar__clouds">
+                    <div className="metar__clouds__top">
+                      <div className="metar__clouds__topIndex">Layer</div>
+                      <div className="metar__clouds__topType">Type</div>
+                      <div className="metar__clouds__topHeight">
+                        Height Above Ground
+                      </div>
+                    </div>
+                    {airport.clouds.map((cloud, index) => (
+                      <div className="metar__clouds__bottom">
+                        <div className="metar__clouds__bottomIndex">
+                          {index + 1}
+                        </div>
+                        <div className="metar__clouds__bottomType">
+                          {cloud.text}
+                        </div>
+                        <div className="metar__clouds__bottomHeight">
+                          {cloud.feet}'
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
