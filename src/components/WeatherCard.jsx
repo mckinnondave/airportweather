@@ -68,7 +68,7 @@ const WeatherCard = ({ metarData, tafData }) => {
                       </div>
                     </div>
                     {airport.clouds.map((cloud, index) => (
-                      <div className="metar__clouds__bottom">
+                      <div className="metar__clouds__bottom" key={index}>
                         <div className="metar__clouds__bottomIndex">
                           {index + 1}
                         </div>
