@@ -86,6 +86,9 @@ const WeatherCard = ({ metarData, tafData }) => {
             </div>
             <div className="taf">
               <div className="metarAndTaf__banner">Forecast</div>
+              <div className="metar__reportTime">
+                Forecast issued on {convertUTC(tafData[index].timestamp.issued)}
+              </div>
             </div>
           </div>
         </div>
