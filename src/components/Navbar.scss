@@ -1,13 +1,14 @@
 .navbar {
   border: solid black 1px;
-  background-color: rgba(100, 0, 0, 0.974);
+  background-color: rgba(126, 16, 16, 0.974);
   height: 6vh;
   display: flex;
   justify-content: center;
   align-items: center;
   
   &__title {
-    font-size: 25px;
+    font-size: 40px;
     color: white;
+    font-weight: 900;
   };
 }

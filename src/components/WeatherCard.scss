@@ -1,3 +1,11 @@
+// colors
+$metarPrimary: a4161a;
+$metarSecondary: ba181b;
+$metarTertiary: e5383b;
+
+$darkGrey: b1a7a6;
+$lightGrey: b1a7a6;
+
 .weatherCard {
   display: flex;
   flex-direction: column;
@@ -86,6 +94,7 @@
       justify-content: center;
       align-items: center;
       font-weight: bold;
+      
     }
 
     &__top {
