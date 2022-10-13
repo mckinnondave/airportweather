@@ -1,11 +1,32 @@
 .weather {
+
+  &__input {
+    width: 100%;
+    margin-left: 10px;
+    height: 85%;
+    outline: none;
+    font-size: 23px;
+  }
+
   &__container {
     border: solid black 2px;
     height: 94vh;
     width: 50vw;
-  }
 
-  &__input {
-    width: 98%;
+    &__form {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      height: 40px;
+      justify-content: space-between;
+
+      & form {
+        width: 83%;
+      }
+
+      & button {
+        margin-right: 10px;
+      }
+    }
   }
 }

@@ -43,15 +43,17 @@ const Weather = ({ airportList, icaoCode }) => {
     <>
       {!obtainedData ? (
         <div className="weather__container">
-          <form action="">
-            <input
-              className="weather__input"
-              type="text"
-              onChange={(e) => setInputText(e.target.value)}
-              value={airportList}
-            ></input>
-          </form>
-          <button onClick={() => callForWeatherData()}>Get Weather</button>
+          <div className="weather__container__form">
+            <form action="">
+              <input
+                className="weather__input"
+                type="text"
+                onChange={(e) => setInputText(e.target.value)}
+                value={airportList}
+              ></input>
+            </form>
+            <button onClick={() => callForWeatherData()}>Get Weather</button>
+          </div>
         </div>
       ) : (
         obtainedData && <WeatherCard metarData={metarData} tafData={tafData} />
