@@ -32,13 +32,18 @@ const WeatherCard = ({ metarData, tafData }) => {
                     </div>
                     <div className="metar__left__wind">
                       <div className="metar__left__banner">Wind</div>
-                      <div className="metar__left__wind__data">
+                      {airport.wind ? (
+                        <div className="metar__left__wind__data">
                         Coming from: <br />
                         <br />
                         {windDirection(airport.wind.degrees)} (
                         {airport.wind.degrees}&#176;) at{" "}
                         {airport.wind.speed_kph}kph
                       </div>
+                      ) : (
+                        <div className="metar__left__wind__data">N/A</div>
+                      )}
+                      
                     </div>
                   </div>
                   <div className="metar__left__bottom">
