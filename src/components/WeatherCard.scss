@@ -9,9 +9,10 @@
 .airport {
   &__container {
     border: solid black 2px;
-    width: 880px;
+    width: 930px;
     height: 350px;
-    margin: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   &__banner {
