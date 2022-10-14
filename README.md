@@ -9,5 +9,5 @@ This application is currently a **work-in-progress** and is likely to change sig
 #### Example code of what a pilot would see:
 ![metar-report](./public/images/metar-report.png)
 
-<!-- #### How betterweather is converting this info (recent weather only so far. Forecasts to come.):
-![metar-report](./public/images/metar-report.png) -->
+#### How betterweather is converting this info (recent weather only so far. Forecasts to come.):
+![first-image](./public/images/betterweather1.gif)
