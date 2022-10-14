@@ -6,3 +6,8 @@ Betterweather is a single-page application built using React that aims to solve 
 
 This application is currently a **work-in-progress** and is likely to change significantly while I work through how I would like to display all my data and project layout. Below however is an example of what the project looks like as of Friday, October 14, 2022.
 
+#### Example code of what a pilot would see:
+![metar-report](./public/images/metar-report.png)
+
+<!-- #### How betterweather is converting this info (recent weather only so far. Forecasts to come.):
+![metar-report](./public/images/metar-report.png) -->
