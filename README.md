@@ -10,4 +10,4 @@ This application is currently a **work-in-progress** and is likely to change sig
 ![metar-report](./public/images/metar-report.png)
 
 #### How betterweather is converting this info (recent weather only so far. Forecasts to come):
-![first-image](./public/images/betterweather1.gif)
+![first-image](./public/images/betterweather.gif)
