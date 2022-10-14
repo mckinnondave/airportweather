@@ -1,7 +1,7 @@
 // colors
-$metarPrimary: a4161a;
-$metarSecondary: ba181b;
-$metarTertiary: e5383b;
+$metarPrimary: #a4161a;
+$metarSecondary: #4b1717;
+$metarTertiary: #f07e7f;
 
 $darkGrey: b1a7a6;
 $lightGrey: b1a7a6;
@@ -21,6 +21,7 @@ $lightGrey: b1a7a6;
     height: 350px;
     margin-top: 5px;
     margin-bottom: 5px;
+    background-color: white;
   }
 
   &__banner {
