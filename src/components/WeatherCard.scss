@@ -178,11 +178,11 @@ $lightGrey: b1a7a6;
   }
 
   &__clouds {
-    height: 60px;
+    height: 40px;
 
     &__top {
       border-bottom: solid black 1px;
-      height: 50%;
+      height: 70%;
       font-size: 13px;
       display: flex;
       flex-direction: row;
@@ -255,4 +255,9 @@ $lightGrey: b1a7a6;
 .taf {
   width: 50%;
   height: 100%;
+
+  &__container {
+    border: solid black 1px;
+    min-height: 20%; 
+  }
 }
