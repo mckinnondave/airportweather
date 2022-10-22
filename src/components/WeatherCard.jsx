@@ -1,7 +1,14 @@
 import "./WeatherCard.scss";
+import { useState } from "react";
 import { convertUTC, windDirection } from "../helpers/weatherHelpers";
 
 const WeatherCard = ({ metarData, tafData }) => {
+  const [tafVisible, setTafVisible] = useState(false)
+
+  const handleDataType = () => {
+    tafVisible ? setTafVisible(false) : setTafVisible(true)
+  }
+
   return (
     <div className="weatherCard">
       {/* Upper portion of weather card (Station name and elevation)*/}
@@ -109,6 +116,7 @@ const WeatherCard = ({ metarData, tafData }) => {
           </div>
         </div>
       ))}
+      <button onClick={() => handleDataType()}>BUTTON</button>
     </div>
   );
 };
