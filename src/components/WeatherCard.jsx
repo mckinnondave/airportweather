@@ -23,7 +23,8 @@ const WeatherCard = ({ metarData, tafData }) => {
               <strong>Elevation:</strong> &nbsp;{airport.elevation.feet}'
             </div>
           </div>
-          <div className="metarAndTaf">
+          {!tafVisible ? (
+            <div className="metarAndTaf">
             {/* METAR portion of weather card*/}
             <div className="metar">
               <div className="metarAndTaf__banner">Recent Weather</div>
@@ -114,6 +115,10 @@ const WeatherCard = ({ metarData, tafData }) => {
               </div>
             </div>
           </div>
+          ) : (
+            <div className="metarAndTaf"></div>
+          )}
+          
         </div>
       ))}
       <button onClick={() => handleDataType()}>BUTTON</button>
