@@ -23,7 +23,7 @@ const WeatherCard = ({ metarData, tafData }) => {
               <strong>Elevation:</strong> &nbsp;{airport.elevation.feet}'
             </div>
           </div>
-          {!tafVisible ? (
+          {!tafVisible ? ( 
             <div className="metarAndTaf">
             {/* METAR portion of weather card*/}
             <div className="metar">
