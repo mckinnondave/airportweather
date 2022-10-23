@@ -6,7 +6,7 @@ const WeatherCard = ({ metarData, tafData }) => {
   const [tafVisible, setTafVisible] = useState(false)
 
   const handleDataType = () => {
-    tafVisible ? setTafVisible(false) : setTafVisible(true)
+    tafVisible ? setTafVisible(false) : setTafVisible(true);
   }
 
   return (
@@ -118,7 +118,6 @@ const WeatherCard = ({ metarData, tafData }) => {
           ) : (
             <div className="metarAndTaf"></div>
           )}
-          
         </div>
       ))}
       <button onClick={() => handleDataType()}>BUTTON</button>
