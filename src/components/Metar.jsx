@@ -11,7 +11,7 @@ const Metar = ({ airport, index, tafData }) => {
   };
 
   return (
-    <div className="airport__container" key={airport.station.name}>
+    <div className="airport__container" >
       <div className="airport__banner">
         <button onClick={() => handleDataType()}>BUTTON</button>
         <div className="airport__name">
