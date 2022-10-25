@@ -6,7 +6,7 @@ const WeatherCard = ({ metarData, tafData }) => {
   const [tafVisible, setTafVisible] = useState(false)
 
   const handleDataType = () => {
-    tafVisible ? setTafVisible(false) : setTafVisible(true);
+    setTafVisible(!tafVisible)
   }
 
   return (
