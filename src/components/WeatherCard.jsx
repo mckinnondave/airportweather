@@ -3,19 +3,22 @@ import { useState } from "react";
 import { convertUTC, windDirection } from "../helpers/weatherHelpers";
 
 const WeatherCard = ({ metarData, tafData }) => {
-  const [tafVisible, setTafVisible] = useState(false)
+  const [tafVisible, setTafVisible] = useState({})
 
   const handleDataType = (id) => {
-    setTafVisible(id)
+    setTafVisible({
+      ...tafVisible,
+      [id]: !tafVisible[id],
+    })
   }
 
   return (
     <div className="weatherCard">
       {/* Upper portion of weather card (Station name and elevation)*/}
       {metarData.map((airport, index) => (
-        <div className="airport__container" key={airport.station.name}>
+        <div className="airport__container" key={index}>
           <div className="airport__banner">
-          <button onClick={() => handleDataType(airport.index)}>BUTTON</button>
+          <button onClick={() => handleDataType(index)}>BUTTON</button>
             <div className="airport__name">
               <strong>{airport.station.name}</strong> &nbsp;
               {airport.station.location}
