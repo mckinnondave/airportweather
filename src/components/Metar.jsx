@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { convertUTC, windDirection } from "../helpers/weatherHelpers";
+import './Metar.scss'
 import Taf from "./Taf";
 
 const Metar = ({ airport, index, tafData }) => {
@@ -101,17 +102,7 @@ const Metar = ({ airport, index, tafData }) => {
               </div>
             </div>
           </div>
-           <Taf index={index} tafData={tafData}/>             
-          {/* TAF portion of weather card */}
-          {/* <div className="taf">
-              <div className="metarAndTaf__banner">Forecast</div>
-              <div className="metar__reportTime">
-                Forecast issued on {convertUTC(tafData[index].timestamp.issued)}
-              </div>
-              <div className="taf__container">
-                From {convertUTC(tafData[index].forecast[0].timestamp.from)} until {convertUTC(tafData[index].forecast[0].timestamp.to)}
-              </div>
-            </div> */}
+          <Taf index={index} tafData={tafData} />
         </div>
       ) : (
         <div className="metarAndTaf"></div>
