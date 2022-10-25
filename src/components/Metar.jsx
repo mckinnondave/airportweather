@@ -13,7 +13,7 @@ const Metar = ({ airport, index, tafData }) => {
   return (
     <div className="airport__container" >
       <div className="airport__banner">
-        <button onClick={() => handleDataType()}>BUTTON</button>
+        <button onClick={() => handleDataType()}>{!tafVisible ? "Show Forecast" : "Show Recent Weather"}</button>
         <div className="airport__name">
           <strong>{airport.station.name}</strong> &nbsp;
           {airport.station.location}

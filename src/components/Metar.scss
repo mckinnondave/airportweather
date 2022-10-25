@@ -10,21 +10,34 @@
 
   &__banner {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 50px;
     border-bottom: solid black 2px;
     font-size: 20px;
+
+    & button {
+      height: 100%;
+      background: none;
+      border: none;
+      border-right: solid black 1px;
+      width: 13%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   &__name {
-    width: 70%;
+    width: 65%;
   }
 
   &__elevation {
     display: flex;
     justify-content: right;
-    width: 23%;
+    width: 15%;
+    margin-right: 15px;
   }
 }
 
