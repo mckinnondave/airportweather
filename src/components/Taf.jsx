@@ -1,4 +1,5 @@
 import { convertUTC } from "../helpers/weatherHelpers";
+import './Taf.scss'
 
 const Taf = ({ tafData, index }) => {
   return (

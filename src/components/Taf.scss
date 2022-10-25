@@ -1,0 +1,9 @@
+.taf {
+  width: 50%;
+  height: 100%;
+
+  &__container {
+    border: solid black 1px;
+    min-height: 20%; 
+  }
+}
