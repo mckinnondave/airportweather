@@ -7,7 +7,8 @@ const WeatherCard = ({ metarData, tafData }) => {
     <div className="weatherCard">
       {/* Upper portion of weather card (Station name and elevation)*/}
       {metarData.map((airport, index, tafData) => (
-        <Metar airport={airport} index={index} tafData={tafData} />
+        <Metar airport={airport} />
+        
       ))}
     </div>
   );
