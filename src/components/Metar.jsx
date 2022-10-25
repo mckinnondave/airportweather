@@ -102,10 +102,12 @@ const Metar = ({ airport, index, tafData }) => {
               </div>
             </div>
           </div>
-          <Taf index={index} tafData={tafData} />
+          
         </div>
       ) : (
-        <div className="metarAndTaf"></div>
+        <div className="metarAndTaf">
+          <Taf index={index} tafData={tafData} />
+        </div>
       )}
     </div>
   );
