@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { convertUTC, windDirection } from "../helpers/weatherHelpers";
+import Taf from "./Taf";
 
-const Metar = ({ airport }) => {
+const Metar = ({ airport, index, tafData }) => {
   const [tafVisible, setTafVisible] = useState(false);
 
   const handleDataType = () => {
@@ -100,7 +101,7 @@ const Metar = ({ airport }) => {
               </div>
             </div>
           </div>
-
+           <Taf index={index} tafData={tafData}/>             
           {/* TAF portion of weather card */}
           {/* <div className="taf">
               <div className="metarAndTaf__banner">Forecast</div>
