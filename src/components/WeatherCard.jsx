@@ -5,8 +5,8 @@ import { convertUTC, windDirection } from "../helpers/weatherHelpers";
 const WeatherCard = ({ metarData, tafData }) => {
   const [tafVisible, setTafVisible] = useState(false)
 
-  const handleDataType = () => {
-    tafVisible ? setTafVisible(false) : setTafVisible(true);
+  const handleDataType = (id) => {
+    setTafVisible(id)
   }
 
   return (
@@ -15,6 +15,7 @@ const WeatherCard = ({ metarData, tafData }) => {
       {metarData.map((airport, index) => (
         <div className="airport__container" key={airport.station.name}>
           <div className="airport__banner">
+          <button onClick={() => handleDataType(airport.index)}>BUTTON</button>
             <div className="airport__name">
               <strong>{airport.station.name}</strong> &nbsp;
               {airport.station.location}
@@ -120,7 +121,7 @@ const WeatherCard = ({ metarData, tafData }) => {
           )}
         </div>
       ))}
-      <button onClick={() => handleDataType()}>BUTTON</button>
+      
     </div>
   );
 };
