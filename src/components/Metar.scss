@@ -2,7 +2,7 @@
   &__container {
     border: solid black 2px;
     width: 930px;
-    height: 350px;
+    height: 550px;
     margin-top: 5px;
     margin-bottom: 5px;
     background-color: white;
@@ -44,7 +44,7 @@
 .metarAndTaf {
   display: flex;
   flex-direction: row;
-  height: 310px;
+  height: 500px;
   width: 100%;
   font-size: 15px;
   overflow: auto;
@@ -74,7 +74,7 @@
 
   &__dataContainer {
     width: 100%;
-    height: 76%;
+    height: 82%;
     display: flex;
     flex-direction: row;
     border-top: solid black 2px;
@@ -82,7 +82,7 @@
 
   &__left {
     border-right: solid black 2px;
-    height: 99%;
+    height: 100%;
     width: 50%;
 
     &__banner {

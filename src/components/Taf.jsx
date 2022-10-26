@@ -1,4 +1,8 @@
-import { convertUTC, abbreviatedConvertUTC, timeConvertUTC } from "../helpers/weatherHelpers";
+import {
+  convertUTC,
+  abbreviatedConvertUTC,
+  timeConvertUTC,
+} from "../helpers/weatherHelpers";
 import "./Taf.scss";
 import * as React from "react";
 import Accordion from "@mui/material/Accordion";
@@ -19,24 +23,23 @@ const Taf = ({ tafData, index }) => {
       <div className="taf__container">
         {tafData[index].forecast.map((forecast, index) => (
           <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography variant="h8">{index + 1}. From {abbreviatedConvertUTC(forecast.timestamp.from)} -{" "}
-        {timeConvertUTC(forecast.timestamp.to)}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography variant="h8">
+                {index + 1}. From{" "}
+                {abbreviatedConvertUTC(forecast.timestamp.from)} -{" "}
+                {timeConvertUTC(forecast.timestamp.to)}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <div className="taf__info"></div>
+            </AccordionDetails>
+          </Accordion>
         ))}
-        
+
         {/* <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
