@@ -17,14 +17,15 @@ const Taf = ({ tafData, index }) => {
       {console.log("TAF DATA", tafData[index].forecast)}
 
       <div className="taf__container">
-        {tafData[index].forecast.map((forecast) => (
+        {tafData[index].forecast.map((forecast, index) => (
           <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Accordion 1</Typography>
+            <Typography variant="h8">{index + 1}. From {convertUTC(forecast.timestamp.from)} until{" "}
+        {convertUTC(forecast.timestamp.to)}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -52,8 +53,7 @@ const Taf = ({ tafData, index }) => {
             </Typography>
           </AccordionDetails>
         </Accordion> */}
-        {/* From {convertUTC(tafData[index].forecast[0].timestamp.from)} until{" "}
-        {convertUTC(tafData[index].forecast[0].timestamp.to)} */}
+        {/*  */}
       </div>
     </div>
   );
