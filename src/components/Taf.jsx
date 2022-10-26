@@ -5,14 +5,19 @@ import {
 } from "../helpers/weatherHelpers";
 import "./Taf.scss";
 import * as React from "react";
+import { useContext } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { LatLonContext } from "./Map";
 
 const Taf = ({ tafData, index }) => {
+  const {latitude, longitude} = useContext(LatLonContext)
+  
   return (
+    // <LatLonContext.Consumer>
     <div className="taf">
       <div className="metarAndTaf__banner">Forecast</div>
       <div className="metar__reportTime">
@@ -59,6 +64,7 @@ const Taf = ({ tafData, index }) => {
         {/*  */}
       </div>
     </div>
+    // </LatLonContext.Consumer>
   );
 };
 
