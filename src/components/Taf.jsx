@@ -1,4 +1,4 @@
-import { convertUTC } from "../helpers/weatherHelpers";
+import { convertUTC, abbreviatedConvertUTC, timeConvertUTC } from "../helpers/weatherHelpers";
 import "./Taf.scss";
 import * as React from "react";
 import Accordion from "@mui/material/Accordion";
@@ -24,8 +24,8 @@ const Taf = ({ tafData, index }) => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography variant="h8">{index + 1}. From {convertUTC(forecast.timestamp.from)} until{" "}
-        {convertUTC(forecast.timestamp.to)}</Typography>
+            <Typography variant="h8">{index + 1}. From {abbreviatedConvertUTC(forecast.timestamp.from)} -{" "}
+        {timeConvertUTC(forecast.timestamp.to)}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>

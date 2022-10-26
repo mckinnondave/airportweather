@@ -13,6 +13,28 @@ const convertUTC = (utcTime) => {
   return localDate.toLocaleString("en-US", options);
 };
 
+const abbreviatedConvertUTC = (utcTime) => {
+  const options = {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
+
+  const localDate = new Date(utcTime);
+  return localDate.toLocaleString("en-US", options);
+};
+
+const timeConvertUTC = (utcTime) => {
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+  };
+
+  const localDate = new Date(utcTime);
+  return localDate.toLocaleString("en-US", options);
+};
+
 // Converts wind degrees into a direction wind is coming from.
 const windDirection = (degrees) => {
   if (degrees > 348.75 && degrees <= 11.25) return "N";
@@ -34,4 +56,4 @@ const windDirection = (degrees) => {
   else return "N/A";
 };
 
-export { convertUTC, windDirection };
+export { convertUTC, windDirection, abbreviatedConvertUTC, timeConvertUTC };
