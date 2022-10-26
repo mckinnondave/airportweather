@@ -7,8 +7,14 @@
   }
 
   &__info {
-    width: 100%;
+    width: 75%;
     height: 200px;
     border: solid black 1px;
   }
+}
+
+.css-15v22id-MuiAccordionDetails-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

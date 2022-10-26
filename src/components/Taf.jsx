@@ -22,7 +22,7 @@ const Taf = ({ tafData, index }) => {
 
       <div className="taf__container">
         {tafData[index].forecast.map((forecast, index) => (
-          <Accordion>
+          <Accordion key={index}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
