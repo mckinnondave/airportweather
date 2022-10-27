@@ -43,6 +43,10 @@ const Taf = ({ tafData, index }) => {
             <AccordionDetails>
               <div className="taf__info">
                 <div className="taf__info__change">{forecast.change ? handleTafChangeType(forecast.change) : "Initial Report"}</div>
+                <div className="data">
+                <div className="data__left">LEFT</div>
+                <div className="data__right">RIGHT</div>
+                </div>
               </div>
             </AccordionDetails>
           </Accordion>
