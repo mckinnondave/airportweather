@@ -37,9 +37,9 @@ const timeConvertUTC = (utcTime) => {
 
 const handleTafChangeType = (data) => {
   if (data.indicator.code === "TEMPO") return "Temporary change (expected to occur for less than half the time period)";
-  if (data.indicator.code === "FM") return "Standard forecast or significant change occuring immediately";
+  if (data.indicator.code === "FM") return "Standard forecast or significant change occuring at start of time period";
   if (data.indicator.code === "BECMG") {
-    return `Conditions expected to become the following by ${timeConvertUTC(data.time_becoming)}`
+    return `Conditions expected to gradually become the following by ${timeConvertUTC(data.time_becoming)}`
   }
 }
 
