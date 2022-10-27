@@ -10,6 +10,15 @@
     width: 75%;
     height: 200px;
     border: solid black 1px;
+
+    &__change {
+      height: 15%;
+      border-bottom: solid black 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
   }
 }
 

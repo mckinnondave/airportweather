@@ -35,6 +35,14 @@ const timeConvertUTC = (utcTime) => {
   return localDate.toLocaleString("en-US", options);
 };
 
+const handleTafChangeType = (data) => {
+  if (data.indicator.code === "TEMPO") return "Temporary change (expected to occur for less than half the time period)";
+  if (data.indicator.code === "FM") return "Standard forecast or significant change occuring immediately";
+  if (data.indicator.code === "BECMG") {
+    return `Conditions expected to become the following by ${timeConvertUTC(data.time_becoming)}`
+  }
+}
+
 // Converts wind degrees into a direction wind is coming from.
 const windDirection = (degrees) => {
   if (degrees > 348.75 && degrees <= 11.25) return "N";
@@ -56,4 +64,4 @@ const windDirection = (degrees) => {
   else return "N/A";
 };
 
-export { convertUTC, windDirection, abbreviatedConvertUTC, timeConvertUTC };
+export { convertUTC, windDirection, abbreviatedConvertUTC, timeConvertUTC, handleTafChangeType };

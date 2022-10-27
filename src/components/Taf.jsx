@@ -2,6 +2,7 @@ import {
   convertUTC,
   abbreviatedConvertUTC,
   timeConvertUTC,
+  handleTafChangeType,
 } from "../helpers/weatherHelpers";
 import "./Taf.scss";
 import * as React from "react";
@@ -40,7 +41,9 @@ const Taf = ({ tafData, index }) => {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <div className="taf__info"></div>
+              <div className="taf__info">
+                <div className="taf__info__change">{forecast.change ? handleTafChangeType(forecast.change) : "Initial Report"}</div>
+              </div>
             </AccordionDetails>
           </Accordion>
         ))}
