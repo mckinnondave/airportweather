@@ -21,10 +21,10 @@ const Taf = ({ tafData, index }) => {
   return (
     // <LatLonContext.Consumer>
     <div className="taf">
-      <div className="metarAndTaf__banner">
-      <div className="metarAndTaf__block"></div>
+      <div className="taf__banner">
+      <div className="taf__block"></div>
         Forecast
-        <button className="metarAndTaf__button" onClick={() => setTempVisible(!tempVisible)}>BUTTON</button>
+        <button className="taf__button" onClick={() => setTempVisible(!tempVisible)}>{tempVisible ? "Show Data" : "Show Temps"}</button>
       </div>
       {!tempVisible ? (
         <>

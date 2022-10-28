@@ -20,6 +20,31 @@
       font-weight: bold;
     }
   }
+
+  &__button {
+    width: 13%;
+    height: 80%;
+    margin-right: 10px;
+    background: none;
+    border: solid black 1px;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+
+  &__block {
+    width: 13%;
+    margin-left: 10px;
+  }
+
+  &__banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    border-bottom: solid black 1px;
+    font-weight: bold;
+    font-size: 18px;
+  }
 }
 
 .data {
