@@ -29,6 +29,10 @@
     border: solid black 1px;
     border-radius: 5px;
     font-size: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__block {
