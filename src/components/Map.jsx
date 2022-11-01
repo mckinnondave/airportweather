@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.scss";
 import { airports } from "../objects/airport_list";
 import Weather from "./Weather";
+import TempChart from "./TempChart";
 
 export const LatLonContext = React.createContext();
 
@@ -42,6 +43,7 @@ const Map = () => {
 
   return (
     <LatLonContext.Provider value={{ latitude, longitude }}>
+      <TempChart />
       <div className="map__container">
         <MapContainer
           center={[49.283, -123.121]}
