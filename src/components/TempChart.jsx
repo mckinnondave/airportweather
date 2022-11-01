@@ -23,6 +23,7 @@ const TempChart = ({clouds}) => {
       {
         type: "bubble",
         indexLabel: "{label}",
+        
         toolTipContent:
           "<b>{label}</b><br>Distance From Sun: {x}mn miles<br>Avg. Surface Temp: {y} Kelvin<br>Diameter: {z} miles",
         dataPoints: [
@@ -38,10 +39,9 @@ const TempChart = ({clouds}) => {
       },
     ],
   };
-  console.log("OPTIONS", options.data[0].dataPoints)
-  console.log("CLOUDS", clouds);
+
   for (const cloud of clouds) {
-    (options.data[0].dataPoints).push({label: cloud.text, y: cloud.feet, z: cloud.feet+2000})
+    (options.data[0].dataPoints).push({label: `${cloud.text} @ ${cloud.feet}`, x: 0, y: cloud.feet, z: cloud.feet+5000, indexLabelTextAlign: "right"})
   }
 
   return (
