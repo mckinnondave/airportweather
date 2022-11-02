@@ -1,13 +1,20 @@
 const cloudChartData = (clouds) => {
-  const provideCloudDescription = (cloud) => {
-    if (cloud === "FEW")
+  const provideCloudDescription = (cloudType) => {
+    if (cloudType === "FEW")
       return "A Light cloud cover layer where 1/8 - 2/8ths of the sky is covered";
-    if (cloud === "SCT")
+    if (cloudType === "SCT")
       return "A moderate cloud cover layer where 3/8 - 4/8ths of the sky is covered";
-    if (cloud === "BKN")
+    if (cloudType === "BKN")
       return "A heavy cloud cover layer where 5/8 - 7/8ths of the sky is covered";
-    if (cloud === "OVC")
+    if (cloudType === "OVC")
       return "The heaviest cloud cover layer where 8/8ths of the sky is covered";
+  };
+
+  const setCloudSize = (cloudType) => {
+    if (cloudType === "FEW") return 10000;
+    if (cloudType === "SCT") return 20000;
+    if (cloudType === "BKN") return 30000;
+    if (cloudType === "OVC") return 40000;
   };
 
   const options = {
@@ -30,20 +37,20 @@ const cloudChartData = (clouds) => {
     data: [
       {
         type: "bubble",
-        toolTipContent: "<b>{label} Cloud Layer</b><br> {data}",
+        toolTipContent: "<b>{y}' - {label} Cloud Layer</b><br> {data}",
         dataPoints: [],
       },
     ],
   };
 
-  // Create datapoints with cloud info
-  for (const cloud of clouds) {
+  // Create dataPoints with cloud info
+  for (const cloudLayer of clouds) {
     options.data[0].dataPoints.push({
-      label: cloud.text,
+      label: cloudLayer.text,
       x: 0,
-      y: cloud.feet,
-      z: cloud.feet + 5000,
-      data: provideCloudDescription(cloud.code)
+      y: cloudLayer.feet,
+      z: setCloudSize(cloudLayer.code),
+      data: provideCloudDescription(cloudLayer.code),
     });
   }
   return options;
