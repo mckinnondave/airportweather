@@ -10,6 +10,7 @@ const cloudChartData = (clouds) => {
       return "The heaviest cloud cover layer where 8/8ths of the sky is covered";
   };
 
+  // Used to set bubble sizes for chart depending on how heavy the cloud type is
   const setCloudSize = (cloudType) => {
     if (cloudType === "FEW") return 10000;
     if (cloudType === "SCT") return 20000;
@@ -43,7 +44,7 @@ const cloudChartData = (clouds) => {
     ],
   };
 
-  // Create dataPoints with cloud info
+  // Create dataPoints to be added to options' empty array
   for (const cloudLayer of clouds) {
     options.data[0].dataPoints.push({
       label: cloudLayer.text,
