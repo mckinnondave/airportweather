@@ -12,10 +12,10 @@ const cloudChartData = (clouds) => {
 
   // Used to set bubble sizes for chart depending on how heavy the cloud type is
   const setCloudSize = (cloudType) => {
-    if (cloudType === "FEW") return 10000;
-    if (cloudType === "SCT") return 20000;
-    if (cloudType === "BKN") return 30000;
-    if (cloudType === "OVC") return 40000;
+    if (cloudType === "FEW") return 1;
+    if (cloudType === "SCT") return 2;
+    if (cloudType === "BKN") return 3;
+    if (cloudType === "OVC") return 4;
   };
 
   const options = {
@@ -23,7 +23,7 @@ const cloudChartData = (clouds) => {
     exportEnabled: true,
     theme: "dark1",
     title: {
-      text: "Clouds",
+      text: "Cloud Layers",
       fontSize: 26,
     },
     axisX: {
