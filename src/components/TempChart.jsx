@@ -1,8 +1,10 @@
 import CanvasJSReact from "../canvas/canvasjs.react";
+import { provideCloudDescription } from "../helpers/weatherHelpers";
 
 const TempChart = ({clouds}) => {
   // let CanvasJS = CanvasJSReact.CanvasJS;
   let CanvasJSChart = CanvasJSReact.CanvasJSChart;
+  console.log("CLOUDS", clouds);
 
   const options = {
     animationEnabled: true,
@@ -25,7 +27,7 @@ const TempChart = ({clouds}) => {
       {
         type: "bubble",    
         toolTipContent:
-          "<b>{label} Cloud Layer</b><br>Distance From Sun: {x}mn miles<br>Avg. Surface Temp: {y} Kelvin<br>Diameter: {z} miles",
+          `<b>{label} Cloud Layer</b><br> ${provideCloudDescription(clouds[0].code)}`,
         dataPoints: [],
       },
     ],

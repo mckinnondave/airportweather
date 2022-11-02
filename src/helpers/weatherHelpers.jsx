@@ -67,4 +67,11 @@ const windDirection = (degrees) => {
   else return "N/A";
 };
 
-export { convertUTC, windDirection, abbreviatedConvertUTC, timeConvertUTC, handleTafChangeType };
+const provideCloudDescription = (cloud) => {
+  if (cloud === "FEW") return "A Light cloud cover layer where 1/8 - 2/8ths of the sky is covered"
+  if (cloud === "SCT") return "A moderate cloud cover layer where 3/8 - 4/8ths of the sky is covered"
+  if (cloud === "BKN") return "A heavy cloud cover layer where 5/8 - 7/8ths of the sky is covered"
+  if (cloud === "OVC") return "The heaviest cloud cover layer where 8/8ths of the sky is covered"
+}
+
+export { convertUTC, windDirection, abbreviatedConvertUTC, timeConvertUTC, handleTafChangeType, provideCloudDescription };
