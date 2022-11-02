@@ -2,7 +2,7 @@ import { useState } from "react";
 import { convertUTC, windDirection } from "../helpers/weatherHelpers";
 import './Metar.scss'
 import Taf from "./Taf";
-import TempChart from "./TempChart";
+import CloudChart from "./CloudChart";
 
 const Metar = ({ airport, index, tafData }) => {
   const [tafVisible, setTafVisible] = useState(false);
@@ -74,7 +74,7 @@ const Metar = ({ airport, index, tafData }) => {
               <div className="metar__right">
                 {/* display area on right side of METAR section for cloud info*/}
                 {/* <div className="metar__right__banner">Clouds</div> */}
-                <TempChart clouds={airport.clouds}/>
+                <CloudChart clouds={airport.clouds}/>
                 {/* <div className="metar__clouds">
                   <div className="metar__clouds__top">
                     <div className="metar__clouds__topIndex">Layer</div>
