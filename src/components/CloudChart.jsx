@@ -1,10 +1,9 @@
 import CanvasJSReact from "../canvas/canvasjs.react";
 import cloudChartData from "../helpers/cloudChartData";
 
+// Component receives option info from cloudChartData helper to create a chart
 const CloudChart = ({clouds}) => {
-  // let CanvasJS = CanvasJSReact.CanvasJS;
   let CanvasJSChart = CanvasJSReact.CanvasJSChart;
-  console.log("CLOUDS", clouds);
 
   return (
     <div>
