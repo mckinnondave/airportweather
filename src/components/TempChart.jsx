@@ -23,25 +23,29 @@ const TempChart = ({clouds}) => {
     },
     data: [
       {
-        type: "bubble",
-                
+        type: "bubble",    
         toolTipContent:
-          "<b>{label}</b><br>Distance From Sun: {x}mn miles<br>Avg. Surface Temp: {y} Kelvin<br>Diameter: {z} miles",
+          "<b>{label} Cloud Layer</b><br>Distance From Sun: {x}mn miles<br>Avg. Surface Temp: {y} Kelvin<br>Diameter: {z} miles",
         dataPoints: [],
       },
     ],
   };
-  
+
   // Create datapoints with cloud info
   for (const cloud of clouds) {
-    (options.data[0].dataPoints).push({label: cloud.text, x: 0, y: cloud.feet, z: cloud.feet+5000, indexLabelTextAlign: "left"})
+      options.data[0].dataPoints.push({
+        label: cloud.text,
+        x: 0,
+        y: cloud.feet,
+        z: cloud.feet + 5000,
+        indexLabelTextAlign: "left",
+      });
   }
 
   return (
     <div>
       <CanvasJSChart
         options={options}
-        /* onRef = {ref => this.chart = ref} */
       />
     </div>
   );

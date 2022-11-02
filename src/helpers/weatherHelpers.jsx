@@ -13,6 +13,7 @@ const convertUTC = (utcTime) => {
   return localDate.toLocaleString("en-US", options);
 };
 
+// Converts UTC to provide abbreviated month layout and local time
 const abbreviatedConvertUTC = (utcTime) => {
   const options = {
     month: "short",
@@ -25,6 +26,7 @@ const abbreviatedConvertUTC = (utcTime) => {
   return localDate.toLocaleString("en-US", options);
 };
 
+// Converts UTC to provide hour and time only
 const timeConvertUTC = (utcTime) => {
   const options = {
     hour: "numeric",
@@ -35,6 +37,7 @@ const timeConvertUTC = (utcTime) => {
   return localDate.toLocaleString("en-US", options);
 };
 
+// Used in TAF to display info about change expected for each forecast period
 const handleTafChangeType = (data) => {
   if (data.indicator.code === "TEMPO") return "Temporary change (expected to occur for less than half the time period)";
   if (data.indicator.code === "FM") return "Standard forecast or significant change occuring at start of time period";
