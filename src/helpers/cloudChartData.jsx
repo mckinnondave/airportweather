@@ -42,12 +42,12 @@ const cloudChartData = (clouds, height) => {
       {
         type: "bubble",
         toolTipContent: "<b>{y}' - {label} Cloud Layer</b><br> {data}",
-        dataPoints: [],
+        dataPoints: [{x: 0, z: 0}, {x: 0, z: 4}], // sets min/max bubble size
       },
     ],
   };
 
-  // Create dataPoints to be added to options' empty array
+  // Create dataPoints to be added to options' empty array and change graph title if sky is clear
   for (const cloudLayer of clouds) {
     options.data[0].dataPoints.push({
       label: cloudLayer.text,
@@ -56,6 +56,8 @@ const cloudChartData = (clouds, height) => {
       z: setCloudSize(cloudLayer.code),
       data: provideCloudDescription(cloudLayer.code),
     });
+    // Changes graph title
+    cloudLayer.code === "SKC" ? options.title.text = "Sky Clear" : options.title.text = "Cloud Layers";
   }
   return options;
 };
