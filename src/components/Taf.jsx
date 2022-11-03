@@ -4,6 +4,7 @@ import {
   timeConvertUTC,
   handleTafChangeType,
 } from "../helpers/weatherHelpers";
+import CloudChart from "./CloudChart";
 import "./Taf.scss";
 import * as React from "react";
 import { useContext, useState } from "react";
@@ -56,7 +57,9 @@ const Taf = ({ tafData, index }) => {
                 </div>
                 <div className="data">
                   <div className="data__left">LEFT</div>
-                  <div className="data__right">RIGHT</div>
+                  <div className="data__right">
+                    <CloudChart clouds = {forecast.clouds} height={170}/>
+                  </div>
                 </div>
               </div>
             </AccordionDetails>

@@ -73,34 +73,7 @@ const Metar = ({ airport, index, tafData }) => {
               </div>
               <div className="metar__right">
                 {/* display area on right side of METAR section for cloud info*/}
-                {/* <div className="metar__right__banner">Clouds</div> */}
-                <CloudChart clouds={airport.clouds}/>
-                {/* <div className="metar__clouds">
-                  <div className="metar__clouds__top">
-                    <div className="metar__clouds__topIndex">Layer</div>
-                    <div className="metar__clouds__topType">Type</div>
-                    <div className="metar__clouds__topHeight">
-                      Height Above Ground
-                    </div>
-                  </div>
-                  {airport.clouds.map((cloud, index) => (
-                    <div className="metar__clouds__bottom" key={index}>
-                      <div className="metar__clouds__bottomIndex">
-                        {index + 1}
-                      </div>
-                      <div className="metar__clouds__bottomType">
-                        {cloud.text}
-                      </div>
-                      {cloud.feet ? (
-                        <div className="metar__clouds__bottomHeight">
-                          {cloud.feet}'
-                        </div>
-                      ) : (
-                        <div className="metar__clouds__bottomHeight">N/A</div>
-                      )}
-                    </div>
-                  ))}
-                </div> */}
+                <CloudChart clouds={airport.clouds} height={406}/>
               </div>
             </div>
           </div>
