@@ -32,7 +32,6 @@ const Taf = ({ tafData, index }) => {
         <div className="metar__reportTime">
         Forecast issued on {convertUTC(tafData[index].timestamp.issued)}
       </div>
-      {console.log("TAF DATA", tafData[index].forecast)}
 
       <div className="taf__container">
         {tafData[index].forecast.map((forecast, index) => (
