@@ -70,7 +70,7 @@ const Taf = ({ tafData, index }) => {
       </div>
       </>
       ) : (
-        <TempForecast />
+        <TempForecast latitude={latitude[index]} longitude={longitude[index]}/>
       )}
       
     </div>

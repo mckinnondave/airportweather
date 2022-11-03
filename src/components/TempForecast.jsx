@@ -1,22 +1,27 @@
 import CanvasJSReact from "../canvas/canvasjs.react";
 import axios from "axios";
+import { useEffect } from "react";
 
-const TempForecast = () => {
+const TempForecast = ({latitude, longitude}) => {
   let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-  const callForTempData = () => {
-    const options = {
-      headers: { "X-API-Key": `${process.env.REACT_APP_TEMPERATURE_API}` },
-    };
+  console.log("LATITUDE", latitude)
+  console.log("longitude", longitude)
+
+  const callForTempData = (latitude, longitude) => {
     axios.get(
-      `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}`, options
+      `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&appid={${process.env.REACT_APP_TEMPERATURE_API}}`
     )
-      .then(res => console.log(res)
+      .then(res => console.log("RESPONSE", res)
       )
       .catch((err) => {
         console.log("ERROR", err);
       });
   };
+
+  useEffect(() => {
+    callForTempData(latitude, longitude)
+  }, [latitude, longitude])
 
   const options = {
     animationEnabled: true,
