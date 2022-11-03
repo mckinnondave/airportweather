@@ -8,7 +8,7 @@ const CloudChart = ({clouds}) => {
 
   return (
       <CanvasJSChart
-        options={cloudChartData(clouds)}
+        options={cloudChartData(clouds, 406)}
       />
   );
 };

@@ -1,4 +1,4 @@
-const cloudChartData = (clouds) => {
+const cloudChartData = (clouds, height) => {
   const provideCloudDescription = (cloudType) => {
     if (cloudType === "FEW")
       return "A Light cloud cover layer where 1/8 - 2/8ths of the sky is covered";
@@ -19,6 +19,7 @@ const cloudChartData = (clouds) => {
   };
 
   const options = {
+    height: height,
     animationEnabled: true,
     exportEnabled: true,
     theme: "dark1",
