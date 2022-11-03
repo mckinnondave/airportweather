@@ -1,7 +1,23 @@
 import CanvasJSReact from "../canvas/canvasjs.react";
-import cloudChartData from "../helpers/cloudChartData";
+import axios from "axios";
 
 const TempForecast = () => {
+  let CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+  const callForTempData = () => {
+    const options = {
+      headers: { "X-API-Key": `${process.env.REACT_APP_TEMPERATURE_API}` },
+    };
+    axios.get(
+      `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={lat}&lon={lon}`, options
+    )
+      .then(res => console.log(res)
+      )
+      .catch((err) => {
+        console.log("ERROR", err);
+      });
+  };
+
   const options = {
     animationEnabled: true,
     exportEnabled: true,
@@ -11,7 +27,7 @@ const TempForecast = () => {
     },
     axisY: {
       title: "Temperature",
-      suffix: "&deg;C",
+      suffix: "C",
     },
     axisX: {
       title: "Day of Week",
@@ -56,3 +72,5 @@ const TempForecast = () => {
       />
   );
 };
+
+export default TempForecast;

@@ -14,10 +14,13 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { LatLonContext } from "./Map";
+import TempForecast from "./TempForecast";
 
 const Taf = ({ tafData, index }) => {
   const [tempVisible, setTempVisible] = useState(false);
   const { latitude, longitude } = useContext(LatLonContext);
+
+  console.log("LAT", latitude)
 
   return (
     // <LatLonContext.Consumer>
@@ -67,7 +70,7 @@ const Taf = ({ tafData, index }) => {
       </div>
       </>
       ) : (
-        <div></div>
+        <TempForecast />
       )}
       
     </div>
