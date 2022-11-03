@@ -34,6 +34,7 @@ const cloudChartData = (clouds, height) => {
       },
     },
     axisY: {
+      minimum: 0,
       title: "Altitude (Above Ground Level)",
       
     },
