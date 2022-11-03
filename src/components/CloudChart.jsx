@@ -7,11 +7,9 @@ const CloudChart = ({clouds}) => {
   let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
   return (
-    <div>
       <CanvasJSChart
         options={cloudChartData(clouds)}
       />
-    </div>
   );
 };
 
