@@ -1,16 +1,15 @@
 import CanvasJSReact from "../canvas/canvasjs.react";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const TempForecast = ({latitude, longitude}) => {
+  const [tempData, setTempData] = useState([])
+
   let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-  console.log("LATITUDE", latitude)
-  console.log("longitude", longitude)
-
-  const callForTempData = (latitude, longitude) => {
+  const callForTempData = (lat, lon) => {
     axios.get(
-      `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${latitude}&lon=${longitude}&appid={${process.env.REACT_APP_TEMPERATURE_API}}`
+      `https://pro.openweathermap.org/data/2.5/forecast/lat=${lat}&lon=${lon}&appid={${process.env.REACT_APP_TEMPERATURE_API}}`
     )
       .then(res => console.log("RESPONSE", res)
       )
