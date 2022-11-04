@@ -1,14 +1,12 @@
 import CanvasJSReact from "../canvas/canvasjs.react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { getLocaleDate, timeConvertUTC } from "../helpers/weatherHelpers";
+import { getLocaleDate } from "../helpers/weatherHelpers";
 
 const TempForecast = ({ latitude, longitude }) => {
   const [tempData, setTempData] = useState([]);
   const [tempTimeData, setTempTimeData] = useState([]);
   const todaysDate = getLocaleDate();
-  console.log("TEMP", tempData);
-  console.log("TEMPTIME", tempTimeData);
 
   let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
