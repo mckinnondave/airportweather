@@ -37,6 +37,11 @@ const timeConvertUTC = (utcTime) => {
   return localDate.toLocaleString("en-US", options);
 };
 
+const getLocaleDate = () => {
+  const date = new Date();
+  return date.toLocaleDateString('en-CA');
+}
+
 // Used in TAF to display info about change expected for each forecast period
 const handleTafChangeType = (data) => {
   if (data.indicator.code === "TEMPO") return "Temporary change (expected to occur for less than half the time period)";
@@ -74,4 +79,4 @@ const provideCloudDescription = (cloud) => {
   if (cloud === "OVC") return "The heaviest cloud cover layer where 8/8ths of the sky is covered"
 }
 
-export { convertUTC, windDirection, abbreviatedConvertUTC, timeConvertUTC, handleTafChangeType, provideCloudDescription };
+export { convertUTC, windDirection, abbreviatedConvertUTC, timeConvertUTC, handleTafChangeType, provideCloudDescription, getLocaleDate };

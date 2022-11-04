@@ -1,26 +1,33 @@
 import CanvasJSReact from "../canvas/canvasjs.react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { getLocaleDate } from "../helpers/weatherHelpers";
 
 const TempForecast = ({latitude, longitude}) => {
   const [tempData, setTempData] = useState([])
+  const [tempTimeData, setTempTimeData] = useState([])
+  const todaysDate = getLocaleDate();
+  console.log("TEMP", tempData)
+  console.log("TEMPTIME", tempTimeData)
 
   let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-  const callForTempData = (lat, lon) => {
-    axios.get(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&timezone=auto&start_date=2022-11-04&end_date=2022-11-04`
-    )
-      .then(res => console.log("RESPONSE", res)
-      )
-      .catch((err) => {
-        console.log("ERROR", err);
-      });
-  };
-
   useEffect(() => {
+    const callForTempData = (lat, lon) => {
+      axios.get(
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&timezone=auto&start_date=${todaysDate}&end_date=${todaysDate}`
+      )
+        .then(res => {
+          setTempData(res.data.hourly.temperature_2m)
+          setTempTimeData(res.data.hourly.time)
+        })
+        
+        .catch((err) => {
+          console.log("ERROR", err);
+        });
+    };
     callForTempData(latitude, longitude)
-  }, [latitude, longitude])
+  }, [latitude, longitude, todaysDate])
 
   const options = {
     animationEnabled: true,
