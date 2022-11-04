@@ -9,7 +9,7 @@ const TempForecast = ({latitude, longitude}) => {
 
   const callForTempData = (lat, lon) => {
     axios.get(
-      `https://pro.openweathermap.org/data/2.5/forecast/lat=${lat}&lon=${lon}&appid={${process.env.REACT_APP_TEMPERATURE_API}}`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_TEMPERATURE_API}`
     )
       .then(res => console.log("RESPONSE", res)
       )
