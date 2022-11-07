@@ -40,7 +40,7 @@ const TempForecast = ({ latitude, longitude }) => {
     },
     axisX: {
       title: "Day of Week",
-      valueFormatString: "HH:mm"
+      valueFormatString: "DDD HH:mm"
     },
     data: [
       {
@@ -60,15 +60,19 @@ const TempForecast = ({ latitude, longitude }) => {
   const formatUTC = (time) => {
     const options = {
       year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      hourCycle: "h23",
+      month: "numeric",
+      day: "numeric",
+      minute: "numeric",
+      hour: "numeric",
+      hourCycle: "h23"
     };
+
+    const ReformatArray = [];
   
     const localDate = new Date(time).toLocaleString("en-US", options);
-    const firstReformat = localDate.replaceAll("/", ", ").split(", ")
-    console.log("Formatting", firstReformat);
+    const dateToArray = localDate.replaceAll(/,|\/|:/g, " ").split(" ");
+    
+    console.log("Formatting", dateToArray);
   }
 
   formatUTC('2022-11-06T23:00')
