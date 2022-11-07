@@ -39,8 +39,9 @@ const TempForecast = ({ latitude, longitude }) => {
       suffix: "C",
     },
     axisX: {
-      title: "Hour",
-      valueFormatString: "HH:mm"
+      title: "24 Hour Period",
+      valueFormatString: "HH:mm",
+      tickLength: 10,
     },
     data: [
       {
@@ -55,9 +56,8 @@ const TempForecast = ({ latitude, longitude }) => {
   for (let i = 0; i < tempData.length; i++) {
     options.data[0].dataPoints.push({ x: new Date(tempTimeData[i]), y: tempData[i] });
   }
-  console.log(options.data[0].dataPoints);
 
-  console.log(new Date(2022, 11, 6, 23, 0))
+  console.log("DATA", options.data[0].dataPoints);
   
   return <CanvasJSChart options={options} />;
 };
