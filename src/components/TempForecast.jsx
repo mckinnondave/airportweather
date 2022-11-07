@@ -60,17 +60,15 @@ const TempForecast = ({ latitude, longitude }) => {
   const formatUTC = (time) => {
     const options = {
       year: "numeric",
-      month: "numeric",
-      day: "numeric",
-      hour: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
     };
   
     const localDate = new Date(time);
     return localDate.toLocaleString("en-US", options);
   }
-  let date = new Date(2012, 6, 15)
-  console.log("FORMAT", date )
-
+  
   return <CanvasJSChart options={options} />;
 };
 
