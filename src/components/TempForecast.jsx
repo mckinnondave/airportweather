@@ -67,15 +67,16 @@ const TempForecast = ({ latitude, longitude }) => {
       hourCycle: "h23"
     };
 
-    const ReformatArray = [];
+    const shuffleArray = [];
   
     const localDate = new Date(time).toLocaleString("en-US", options);
     const dateToArray = localDate.replaceAll(/,|\/|:/g, " ").split(" ");
+    shuffleArray.push(dateToArray[2], dateToArray[0], dateToArray[1], dateToArray[4], dateToArray[5]);
     
-    console.log("Formatting", dateToArray);
+    return shuffleArray.join(",")
   }
 
-  formatUTC('2022-11-06T23:00')
+  console.log(formatUTC('2022-11-06T23:00'))
   
   return <CanvasJSChart options={options} />;
 };
