@@ -39,8 +39,8 @@ const TempForecast = ({ latitude, longitude }) => {
       suffix: "C",
     },
     axisX: {
-      title: "Day of Week",
-      valueFormatString: "DDD HH:mm"
+      title: "Hour",
+      valueFormatString: "HH:mm"
     },
     data: [
       {
@@ -53,30 +53,11 @@ const TempForecast = ({ latitude, longitude }) => {
   };
   
   for (let i = 0; i < tempData.length; i++) {
-    options.data[0].dataPoints.push({ x: tempTimeData[i], y: tempData[i] });
+    options.data[0].dataPoints.push({ x: new Date(tempTimeData[i]), y: tempData[i] });
   }
   console.log(options.data[0].dataPoints);
 
-  const formatUTC = (time) => {
-    const options = {
-      year: "numeric",
-      month: "numeric",
-      day: "numeric",
-      minute: "numeric",
-      hour: "numeric",
-      hourCycle: "h23"
-    };
-
-    const shuffleArray = [];
-  
-    const localDate = new Date(time).toLocaleString("en-US", options);
-    const dateToArray = localDate.replaceAll(/,|\/|:/g, " ").split(" ");
-    shuffleArray.push(dateToArray[2], dateToArray[0], dateToArray[1], dateToArray[4], dateToArray[5]);
-    
-    return shuffleArray.join(",")
-  }
-
-  console.log(formatUTC('2022-11-06T23:00'))
+  console.log(new Date(2022, 11, 6, 23, 0))
   
   return <CanvasJSChart options={options} />;
 };
