@@ -30,6 +30,7 @@ const TempForecast = ({ latitude, longitude }) => {
   const options = {
     animationEnabled: true,
     exportEnabled: true,
+    height: 457,
     theme: "dark2",
     title: {
       text: "Daily Temperature Forecast",
