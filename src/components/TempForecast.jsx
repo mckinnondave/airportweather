@@ -37,17 +37,18 @@ const TempForecast = ({ latitude, longitude }) => {
     },
     axisY: {
       title: "Temperature",
-      suffix: "C",
+      suffix: "°C",
     },
     axisX: {
       title: "24 Hour Period",
       valueFormatString: "HH:mm",
       tickLength: 10,
+      
     },
     data: [
       {
         type: "line",
-        toolTipContent: "Week {x}: {y}%",
+        toolTipContent: "{y}°C",
         xValueType:"dateTime",
         dataPoints: [],
       },
