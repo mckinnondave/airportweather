@@ -12,10 +12,10 @@ const cloudChartData = (clouds, height) => {
 
   // Used to set bubble sizes for chart depending on how heavy the cloud type is
   const setCloudSize = (cloudType) => {
-    if (cloudType === "FEW") return 1;
-    if (cloudType === "SCT") return 2;
+    if (cloudType === "FEW") return 0;
+    if (cloudType === "SCT") return 1;
     if (cloudType === "BKN") return 3;
-    if (cloudType === "OVC") return 4;
+    if (cloudType === "OVC") return 7;
   };
 
   const options = {
@@ -42,7 +42,7 @@ const cloudChartData = (clouds, height) => {
       {
         type: "bubble",
         toolTipContent: "<b>{y}' - {label} Cloud Layer</b><br> {data}",
-        dataPoints: [{x: 0, z: 0}, {x: 0, z: 4}], // sets min/max bubble size
+        dataPoints: [{x: 0, z: -1}, {x: 0, z: 8}], // sets min/max bubble size
       },
     ],
   };
