@@ -11,6 +11,7 @@ const Map = () => {
   const [icaoCode, setIcaoCode] = useState([]);
   const [latitude, setLatitude] = useState([]);
   const [longitude, setLongitude] = useState([]);
+  const [isMapVisible, setIsMapVisible] = useState(true)
 
   // adds airport name and ICAO code to respective states
   const handleAddingAirport = (name, code, lat, lon) => {
@@ -43,7 +44,7 @@ const Map = () => {
   return (
     <LatLonContext.Provider value={{ latitude, longitude }}>
       <div className="map__container">
-        <MapContainer
+        {isMapVisible && <MapContainer
           center={[49.283, -123.121]}
           zoom={8}
           scrollWheelZoom={true}
@@ -88,8 +89,8 @@ const Map = () => {
             }
             return null;
           })}
-        </MapContainer>
-        <Weather airportList={airportList} icaoCode={icaoCode} />
+        </MapContainer>}
+        <Weather airportList={airportList} icaoCode={icaoCode} setIsMapVisible={setIsMapVisible}/>
       </div>
     </LatLonContext.Provider>
   );

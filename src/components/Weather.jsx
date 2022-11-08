@@ -3,13 +3,11 @@ import axios from "axios";
 import { useState } from "react";
 import WeatherCard from "./WeatherCard";
 
-const Weather = ({ airportList, icaoCode }) => {
+const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
   const [metarData, setMetarData] = useState(null);
   const [tafData, setTafData] = useState(null);
   const [inputText, setInputText] = useState("");
   const [obtainedData, setObtainedData] = useState(false);
-  console.log("METAR DATA", metarData);
-  console.log("Taf DATA", tafData);
   const codeString = icaoCode.toString();
 
   const callForWeatherData = () => {
@@ -32,6 +30,7 @@ const Weather = ({ airportList, icaoCode }) => {
           setMetarData(responses[0].data.data);
           setTafData(responses[1].data.data);
           setObtainedData(true);
+          setIsMapVisible(false)
         })
       )
       .catch((err) => {
