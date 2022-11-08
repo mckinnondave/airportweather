@@ -75,7 +75,7 @@ const Map = () => {
                       }
                     >
                       Add
-                    </button>
+                    </button> &nbsp; 
                     <button
                       onClick={() =>
                         handleRemovingAirport(marker.name, marker.iata_code)
