@@ -10,6 +10,9 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
   const [obtainedData, setObtainedData] = useState(false);
   const codeString = icaoCode.toString();
 
+  console.log("METAR", metarData);
+  console.log("TAF", tafData);
+
   const callForWeatherData = () => {
     const options = {
       headers: { "X-API-Key": `${process.env.REACT_APP_WEATHER_API}` },
@@ -37,9 +40,7 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
         console.log("ERROR", err);
       });
   };
-
-  console.log("Airports", airportList)
-
+  
   return (
     <>
       {!obtainedData ? (

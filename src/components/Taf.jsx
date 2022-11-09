@@ -20,59 +20,63 @@ const Taf = ({ tafData, index }) => {
   const [tempVisible, setTempVisible] = useState(false);
   const { latitude, longitude } = useContext(LatLonContext);
 
-  console.log("LAT", latitude)
+  console.log("LAT", latitude);
 
   return (
     // <LatLonContext.Consumer>
     <div className="taf">
       <div className="taf__banner">
-      <div className="taf__block"></div>
+        <div className="taf__block"></div>
         Forecast
-        <button className="taf__button" onClick={() => setTempVisible(!tempVisible)}>{tempVisible ? "Show Data" : "Show Temps"}</button>
+        <button
+          className="taf__button"
+          onClick={() => setTempVisible(!tempVisible)}
+        >
+          {tempVisible ? "Show Data" : "Show Temps"}
+        </button>
       </div>
       {!tempVisible ? (
         <>
-        <div className="metar__reportTime">
-        Forecast issued on {convertUTC(tafData[index].timestamp.issued)}
-      </div>
+          <div className="metar__reportTime">
+            Forecast issued on {convertUTC(tafData[index].timestamp.issued)}
+          </div>
 
-      <div className="taf__container">
-        {tafData[index].forecast.map((forecast, index) => (
-          <Accordion key={index}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography variant="h8">
-                {index + 1}. From{" "}
-                {abbreviatedConvertUTC(forecast.timestamp.from)} -{" "}
-                {timeConvertUTC(forecast.timestamp.to)}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <div className="taf__info">
-                <div className="taf__info__change">
-                  {forecast.change
-                    ? handleTafChangeType(forecast.change)
-                    : "Initial Report"}
-                </div>
-                <div className="data">
-                  <div className="data__left">LEFT</div>
-                  <div className="data__right">
-                    <CloudChart clouds = {forecast.clouds} height={254}/>
+          <div className="taf__container">
+            {tafData[index].forecast.map((forecast, index) => (
+              <Accordion key={index}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography variant="h8">
+                    {index + 1}. From{" "}
+                    {abbreviatedConvertUTC(forecast.timestamp.from)} -{" "}
+                    {timeConvertUTC(forecast.timestamp.to)}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <div className="taf__info">
+                    <div className="taf__info__change">
+                      {forecast.change
+                        ? handleTafChangeType(forecast.change)
+                        : "Initial Report"}
+                    </div>
+                    <div className="data">
+                      <div className="data__left">LEFT</div>
+                      <div className="data__right">
+                        <CloudChart clouds={forecast.clouds} height={254} />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </div>
-      </>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </div>
+        </>
       ) : (
-        <TempForecast latitude={latitude[index]} longitude={longitude[index]}/>
+        <TempForecast latitude={latitude[index]} longitude={longitude[index]} />
       )}
-      
     </div>
     // </LatLonContext.Consumer>
   );

@@ -58,8 +58,6 @@ const TempForecast = ({ latitude, longitude }) => {
   for (let i = 0; i < tempData.length; i++) {
     options.data[0].dataPoints.push({ x: new Date(tempTimeData[i]), y: tempData[i] });
   }
-
-  console.log("DATA", options.data[0].dataPoints);
   
   return <CanvasJSChart options={options} />;
 };
