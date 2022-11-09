@@ -16,7 +16,7 @@ const Map = () => {
   // adds airport name and ICAO code to respective states
   const handleAddingAirport = (name, code, lat, lon) => {
     if (!airportList.includes(name)) {
-      setAirportList([...airportList, name]);
+      setAirportList([...airportList, " " + name]);
       setIcaoCode([...icaoCode, "C" + code]);
       setLatitude([...latitude, lat]);
       setLongitude([...longitude, lon]);

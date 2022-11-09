@@ -38,6 +38,8 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
       });
   };
 
+  console.log("Airports", airportList)
+
   return (
     <>
       {!obtainedData ? (
