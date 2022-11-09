@@ -60,7 +60,7 @@ const Taf = ({ tafData, index }) => {
                 <div className="data">
                   <div className="data__left">LEFT</div>
                   <div className="data__right">
-                    <CloudChart clouds = {forecast.clouds} height={170}/>
+                    <CloudChart clouds = {forecast.clouds} height={254}/>
                   </div>
                 </div>
               </div>
