@@ -8,10 +8,27 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
   const [tafData, setTafData] = useState(null);
   const [inputText, setInputText] = useState("");
   const [obtainedData, setObtainedData] = useState(false);
+  const [latitude, setLatitude] = useState([])
+  const [longitude, setLongitude] = useState([]);
   const codeString = icaoCode.toString();
+
+  console.log("ICAO", icaoCode)
+  console.log("CODESTRING", codeString)
 
   console.log("METAR", metarData);
   console.log("TAF", tafData);
+
+  const setLatitudeAndLongitude = () => {
+    const arrayOfLatitudes = [];
+    const arrayOfLongitudes = [];
+    for (const airport of metarData) {
+      arrayOfLatitudes.push(airport.station.geometry.coordinates[0]);
+      arrayOfLongitudes.push(airport.station.geometry.coordinates[1]);
+    }
+    setLatitude(arrayOfLatitudes)
+    setLongitude(arrayOfLongitudes)
+    return;
+  }
 
   const callForWeatherData = () => {
     const options = {
@@ -30,8 +47,10 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
       .all([reqMetar, reqTaf])
       .then(
         axios.spread((...responses) => {
+          console.log("RESPONSES", responses)
           setMetarData(responses[0].data.data);
           setTafData(responses[1].data.data);
+          setLatitudeAndLongitude();
           setObtainedData(true);
           setIsMapVisible(false)
         })
@@ -40,7 +59,10 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
         console.log("ERROR", err);
       });
   };
-  
+
+  console.log("newLat", latitude);
+  console.log("newLon", longitude);
+
   return (
     <>
       {!obtainedData ? (
