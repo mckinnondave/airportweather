@@ -9,15 +9,9 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
   const [tafData, setTafData] = useState(null);
   const [inputText, setInputText] = useState("");
   const [obtainedData, setObtainedData] = useState(false);
-  const [latitude, setLatitude] = useState(null)
+  const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const codeString = icaoCode.toString();
-
-  console.log("ICAO", icaoCode)
-  console.log("CODESTRING", codeString)
-
-  console.log("METAR", metarData);
-  console.log("TAF", tafData);
 
   const callForWeatherData = () => {
     const options = {
@@ -39,7 +33,7 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
           setMetarData(responses[0].data.data);
           setTafData(responses[1].data.data);
           setObtainedData(true);
-          setIsMapVisible(false)
+          setIsMapVisible(false);
         })
       )
       .catch((err) => {
@@ -54,19 +48,16 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
       arrayOfLatitudes.push(airport.station.geometry.coordinates[1]);
       arrayOfLongitudes.push(airport.station.geometry.coordinates[0]);
     }
-    setLatitude(arrayOfLatitudes)
-    setLongitude(arrayOfLongitudes)
+    setLatitude(arrayOfLatitudes);
+    setLongitude(arrayOfLongitudes);
     return;
-  }
+  };
 
   useEffect(() => {
     if (metarData) {
-      setLatitudeAndLongitude(metarData)
+      setLatitudeAndLongitude(metarData);
     }
-  }, [metarData])
-
-  console.log("newLat", latitude);
-  console.log("newLon", longitude);
+  }, [metarData]);
 
   return (
     <>
