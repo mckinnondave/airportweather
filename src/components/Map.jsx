@@ -4,8 +4,6 @@ import "./Map.scss";
 import { airports } from "../objects/airport_list";
 import Weather from "./Weather";
 
-export const LatLonContext = React.createContext();
-
 const Map = () => {
   const [airportList, setAirportList] = useState([]);
   const [icaoCode, setIcaoCode] = useState([]);
@@ -18,13 +16,11 @@ const Map = () => {
     if (!airportList.includes(name)) {
       setAirportList([...airportList, " " + name]);
       setIcaoCode([...icaoCode, "C" + code]);
-      setLatitude([...latitude, lat]);
-      setLongitude([...longitude, lon]);
     }
   };
 
   // removes airport name and ICAO code from respective states
-  const handleRemovingAirport = (name, code, lat, lon) => {
+  const handleRemovingAirport = (name, code) => {
     if (airportList.includes(name)) {
       const copiedAirports = airportList.filter(
         (selected) => selected !== name
@@ -32,17 +28,12 @@ const Map = () => {
       const copiedIcaos = icaoCode.filter(
         (selected) => selected !== "C" + code
       );
-      const copiedLatitudes = latitude.filter((selected) => selected !== lat);
-      const copiedLongitudes = longitude.filter((selected) => selected !== lon);
       setAirportList(copiedAirports);
       setIcaoCode(copiedIcaos);
-      setLatitude(copiedLatitudes);
-      setLongitude(copiedLongitudes);
     }
   };
 
   return (
-    <LatLonContext.Provider value={{ latitude, longitude }}>
       <div className="map__container">
         {isMapVisible && <MapContainer
           center={[49.283, -123.121]}
@@ -92,7 +83,7 @@ const Map = () => {
         </MapContainer>}
         <Weather airportList={airportList} icaoCode={icaoCode} setIsMapVisible={setIsMapVisible}/>
       </div>
-    </LatLonContext.Provider>
+    
   );
 };
 

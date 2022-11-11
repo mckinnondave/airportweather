@@ -1,8 +1,10 @@
 import "./Weather.scss";
 import axios from "axios";
-import { useState } from "react";
+import React, { useState } from "react";
 import WeatherCard from "./WeatherCard";
 import { useEffect } from "react";
+
+export const LatLonContext = React.createContext();
 
 const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
   const [metarData, setMetarData] = useState(null);
@@ -42,14 +44,14 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
   };
 
   const setLatitudeAndLongitude = (data) => {
-    const arrayOfLatitudes = [];
     const arrayOfLongitudes = [];
+    const arrayOfLatitudes = [];
     for (const airport of data) {
-      arrayOfLatitudes.push(airport.station.geometry.coordinates[1]);
       arrayOfLongitudes.push(airport.station.geometry.coordinates[0]);
+      arrayOfLatitudes.push(airport.station.geometry.coordinates[1]);
     }
-    setLatitude(arrayOfLatitudes);
     setLongitude(arrayOfLongitudes);
+    setLatitude(arrayOfLatitudes);
     return;
   };
 
@@ -60,7 +62,7 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
   }, [metarData]);
 
   return (
-    <>
+    <LatLonContext.Provider value={{ latitude, longitude }}>
       {!obtainedData ? (
         <div className="weather__container">
           <div className="weather__container__form">
@@ -78,7 +80,7 @@ const Weather = ({ airportList, icaoCode, setIsMapVisible }) => {
       ) : (
         obtainedData && <WeatherCard metarData={metarData} tafData={tafData} />
       )}
-    </>
+    </LatLonContext.Provider>
   );
 };
 

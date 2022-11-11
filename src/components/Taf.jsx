@@ -13,7 +13,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { LatLonContext } from "./Map";
+import { LatLonContext } from "./Weather";
 import TempForecast from "./TempForecast";
 
 const Taf = ({ tafData, index }) => {
@@ -21,9 +21,9 @@ const Taf = ({ tafData, index }) => {
   const { latitude, longitude } = useContext(LatLonContext);
 
   console.log("LAT", latitude);
+  console.log("LON", longitude);
 
   return (
-    // <LatLonContext.Consumer>
     <div className="taf">
       <div className="taf__banner">
         <div className="taf__block"></div>
@@ -78,7 +78,6 @@ const Taf = ({ tafData, index }) => {
         <TempForecast latitude={latitude[index]} longitude={longitude[index]} />
       )}
     </div>
-    // </LatLonContext.Consumer>
   );
 };
 
